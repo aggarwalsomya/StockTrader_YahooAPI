@@ -9,6 +9,7 @@ This explains how to use the virtual stock trading system developed as part of C
 
 go get github.com/aggarwalsomya/273_Assignment1_YahooStock
 
+cd Server
 
 
 **On Mac:**
