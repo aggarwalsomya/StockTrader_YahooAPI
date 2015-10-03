@@ -6,14 +6,11 @@ import (
 	"strconv";
 	"fmt";
 	"errors";
-//	"tradeinterfaces";
 )
 
 type TradingService struct{
 	TradeIdToResponseMap map[int]responseInfo
 }
-
-//var ts TradingService
 
 func (ts *TradingService) TradeStocks(r *http.Request, req *TradingRequest, res *TradingResponse) error {
 
