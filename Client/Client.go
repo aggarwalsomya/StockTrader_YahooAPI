@@ -10,7 +10,6 @@ import (
 	"net/http"
 	"os"
 	"strconv"
-//	"tradeinterfaces"
 	"strings"
 )
 
@@ -75,16 +74,17 @@ func Execute(method string, req, res interface{}) error {
 //prints the instrcutions for the user to enter the command line params
 func printHelp() {
 
-	fmt.Println("Missing or invalid command line parameters. Use the following format to invoke client.exe.")
+	fmt.Println("Missing or invalid command line parameters. Use the following format to invoke client")
 
 	fmt.Println("\n\nFor Trading stocks:")
-	fmt.Println("client.exe \"trade (API Name)\" \"2000.0 (Budget)\" \"GOOG:50%,AMZN:10%,AAPL:40% (Stocks information)\"")
+	fmt.Println("client \"trade\" \"2000.0 (Budget)\" \"GOOG:50%,AMZN:10%,AAPL:40% (Stocks information)\"")
 
 	fmt.Println("\n\nFor Getting portfolio:")
-	fmt.Println("client.exe \"portfolio (API Name)\" \"12322 (tradeId)")
+	fmt.Println("client \"getportfolio\" \"12322 (tradeId)\"");
 
 	fmt.Println("\n\nExample:")
-	fmt.Println("client.exe \"trade\" \"2000.0\" \"GOOG:50%,AMZN:10%,AAPL:40%\"")
+	fmt.Println("client \"trade\" \"2000.0\" \"GOOG:50%,AMZN:10%,AAPL:40%\"")
+	fmt.Println("client \"getportfolio\" \"1835\"")
 }
 
 func main() {
@@ -122,12 +122,12 @@ func main() {
 		if err := Execute("TradingService.TradeStocks", &TradingRequest{budget, tradingStocks}, &reply); err != nil {
 			fmt.Println("Error!:", err)
 		} else {
-			fmt.Println("TradeId:",reply.TradeId);
-			fmt.Println("Stock Info(Stock_Sym:No_of_Stocks_Purchased:Price) : ",reply.Stocks);
-			fmt.Println("Unvested Amount:" ,reply.UnvestedAmount);
+			fmt.Println("tradeId: ",reply.TradeId);
+			fmt.Println("stocks: ",reply.Stocks);
+			fmt.Println("unvestedAmount: " ,reply.UnvestedAmount);
 		}
 
-	} else if strings.EqualFold(methodName, "portfolio") {
+	} else if strings.EqualFold(methodName, "getportfolio") {
 
 		if len(os.Args) < 3 {
 			printHelp()
@@ -143,9 +143,9 @@ func main() {
 		if err := Execute("TradingService.GetPortfolioDetails", &PortfolioRequest{tradeId}, &portfolioReply); err != nil {
 			fmt.Println("Error!: ", err)
 		} else {
-			fmt.Println("Portfolio Info(Stock_Sym:No_of_Stocks_Purchased:Profit/Loss:CurrentPrice) :", portfolioReply.Stocks);
-			fmt.Println("Unvested Amount:", portfolioReply.UnvestedAmount);
-			fmt.Println("Total Market Value:", portfolioReply.CurrentMarketValue);
+			fmt.Println("stocks: ", portfolioReply.Stocks);
+			fmt.Println("unvestedAmount: ", portfolioReply.UnvestedAmount);
+			fmt.Println("currentMarketValue: ", portfolioReply.CurrentMarketValue);
 		}
 	} else {
 		printHelp()

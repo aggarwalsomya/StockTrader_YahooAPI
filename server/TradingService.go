@@ -57,7 +57,8 @@ func (ts *TradingService) TradeStocks(r *http.Request, req *TradingRequest, res 
 		price := strconv.FormatFloat(s1.stockInfo_res[i].stockPrice, 'f', -1, 64)
 		res.Stocks = res.Stocks + s1.stockInfo_res[i].stockName + ":" + strconv.Itoa(s1.stockInfo_res[i].noOfStocks) +":$" + price
 	}
-	
+
+	fmt.Println("The response is");	
 	fmt.Println(s1); 
 	return nil
 }
@@ -65,7 +66,7 @@ func (ts *TradingService) TradeStocks(r *http.Request, req *TradingRequest, res 
 //getting portfolio details for the user
 func (ts *TradingService) GetPortfolioDetails(r *http.Request, req *PortfolioRequest, res *PortfolioResponse) error {
 	var responseInfoObj responseInfo
-	
+	fmt.Println("Got the request for getting portfolio");	
 	responseInfoObj,ok := ts.TradeIdToResponseMap[req.TradeId]
 	if !ok {
 		err:= errors.New("Invalid Trade Id")
@@ -74,6 +75,7 @@ func (ts *TradingService) GetPortfolioDetails(r *http.Request, req *PortfolioReq
 	}
 	
 	Presp:= getPortfolioDetails(responseInfoObj)
+	fmt.Println("The response is: ");
 	fmt.Println(Presp);
 	
 	//convert this response into a form user wants
