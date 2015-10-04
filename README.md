@@ -16,7 +16,6 @@ go run *
 ** Start the client **
 
 go get github.com/aggarwalsomya/273_Assignment1_YahooStock/client
-
 cd client
 
 // To trade stocks
