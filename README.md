@@ -16,10 +16,10 @@ go run *
 go get github.com/aggarwalsomya/273_Assignment1_YahooStock/client
 cd client
 
-// To trade stocks
+*To trade stocks*
 go run * "trade" "1000" "GOOG:50%,AMZN:10%,AAPL:40%"
 
-// To get portfolio
+*To get portfolio*
 go run * "getportfolio" <tradeId>
 
 
