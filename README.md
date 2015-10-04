@@ -28,7 +28,7 @@ go run * "trade" "1000" "GOOG:50%,AMZN:10%,AAPL:40%"
 go run * "getportfolio" <tradeId>
 
 
-**Using curl to make requests**
+#Using curl to make requests
 
 One can use the curl command too to make requests to the server
 
