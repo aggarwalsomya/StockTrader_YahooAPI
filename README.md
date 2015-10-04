@@ -32,6 +32,7 @@ One can use the curl command too to make requests to the server
 // To trade stocks
 curl  -H "Content-Type: application/json"  -d '{"method":"TradingService.TradeStocks","params":[{"Budget":2000,"StockSymbolAndPercentage":"GOOG:50%,AMZN:20%,AAPL:30%"}],"id":0}' http://localhost:8082/rpc
 
+
 // To get portfolio
 curl  -H "Content-Type: application/json"  -d '{"method":"TradingService.GetPortfolioDetails","params":[{"TradeId":8081}],"id":0}' http://localhost:8082/rpc
 
