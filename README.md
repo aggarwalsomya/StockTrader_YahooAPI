@@ -7,7 +7,7 @@ This explains how to use the virtual stock trading system developed as part of C
 
 #Start the server
 
-go get github.com/aggarwalsomya/273_Assignment1_YahooStock/server
+go get github.com/aggarwalsomya/cmpe273-assignment1/server
 
 cd server
 
@@ -15,7 +15,7 @@ go run *
 
 #Start the client
 
-go get github.com/aggarwalsomya/273_Assignment1_YahooStock/client
+go get github.com/aggarwalsomya/cmpe273-assignment1/client
 
 cd client
 
