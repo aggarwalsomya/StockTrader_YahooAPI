@@ -9,7 +9,7 @@ This explains how to use the virtual stock trading system developed as part of C
 
 go get github.com/aggarwalsomya/cmpe273-assignment1/server
 
-cd server
+cd cmpe273-assignment1/server
 
 go run *
 
@@ -17,7 +17,7 @@ go run *
 
 go get github.com/aggarwalsomya/cmpe273-assignment1/client
 
-cd client
+cd cmpe273-assignment1/client
 
 **To trade stocks**
 
